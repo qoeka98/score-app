@@ -1,19 +1,32 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import os
 import platform
-from matplotlib import font_manager, rc
 
-# ✅ 운영체제(OS)별 한글 폰트 설정
+# ✅ 한글 폰트 설정 (서버에서도 정상적으로 실행되도록 설정)
 def set_korean_font():
     plt.rcParams["axes.unicode_minus"] = False  # ✅ 마이너스(-) 깨짐 방지
 
     if platform.system() == "Windows":
-        rc("font", family="Malgun Gothic")  # ✅ 윈도우 환경 (맑은 고딕)
-    elif platform.system() == "Linux":
-        rc("font", family="NanumGothic")  # ✅ 리눅스 환경 (나눔 고딕)
+        plt.rc("font", family="Malgun Gothic")  # ✅ 윈도우 환경 (맑은 고딕)
     else:
-        rc("font", family="DejaVu Sans")  # ✅ 기본 폰트 (맥OS 등)
+        # ✅ 서버(Linux) 환경에서는 NanumGothic 폰트를 직접 등록
+        font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+
+        if not os.path.exists(font_path):  # 폰트가 없을 경우 예외 처리
+            st.error("❌ 서버에 'NanumGothic' 폰트가 설치되어 있지 않습니다. 폰트를 설치하세요!")
+            return
+
+        try:
+            font_prop = fm.FontProperties(fname=font_path)
+            plt.rcParams["font.family"] = font_prop.get_name()  # ✅ 강제 적용
+            fm._rebuild()  # ✅ Matplotlib 폰트 캐시 갱신
+            st.success(f"✅ 한글 폰트가 정상적으로 적용되었습니다! ({font_prop.get_name()})")
+
+        except Exception as e:
+            st.error(f"⚠️ 한글 폰트 설정 중 오류 발생: {e}")
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
@@ -39,9 +52,9 @@ def run_ml():
         ax.plot(study_hours, predicted_scores, label="예상 성적", marker="o", linestyle="--", color="blue")
         ax.scatter(study_time, actual_score, color="red", label="사용자 입력 성적", s=100, edgecolors="black")
 
-        ax.set_xlabel(" 공부 시간 (시간)")
-        ax.set_ylabel(" 예상 성적")
-        ax.set_title(" 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
+        ax.set_xlabel("📚 공부 시간 (시간)")
+        ax.set_ylabel("📊 예상 성적")
+        ax.set_title("📊 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
         ax.legend()
         ax.grid(True)
 
