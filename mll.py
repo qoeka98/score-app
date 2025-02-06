@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import random
 
+
 def run_mll():
     st.title("📚 성적 분석 및 맞춤형 공부법 추천")
     st.subheader("🔍 공부 방법을 개선하고 목표 점수를 달성하세요!")
@@ -91,7 +92,7 @@ def run_mll():
         new_studytime = current_studytime + extra_study_hours
         new_freetime = max(0, current_freetime - reduced_free_hours)  # 자유 시간은 0 이하로 내려가지 않도록 처리
 
-        return round(new_studytime, 1), round(new_freetime, 1), f"🎯 목표 점수({target_score}점)에 도달하려면 공부 시간을 {round(extra_study_hours, 1)}시간 늘리고 자유 시간을 {round(reduced_free_hours, 1)}시간 줄이는 것이 좋습니다!"
+        return round(new_studytime, 1), round(new_freetime, 1), f"🎯 장학금성적({target_score}점)에 도달하려면 공부 시간을 {round(extra_study_hours, 1)}시간 늘리고 자유 시간을 {round(reduced_free_hours, 1)}시간 줄이는 것이 좋습니다!"
 
     # ✅ 사용자 입력 받기
     current_studytime = st.number_input("⏳ 현재 하루 평균 공부 시간 (시간)", min_value=0, max_value=24, step=1, value=3)
