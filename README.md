@@ -76,9 +76,6 @@
 그리고 그 작은 변화가 쌓이면, 미래는 인공지능조차 예측할 수 없는 무한한 가능성으로 열린다. 🚀
 
 📌 프로젝트 구조
-bash
-복사
-편집
 📂 성적 예측 시스템
 │── app.py               # 메인 실행 파일 (Streamlit 앱)
 │── eda.py               # 성적 예측 및 장학금 분석 모듈
@@ -86,6 +83,7 @@ bash
 │── ml.py                # 공부 시간 vs. 성적 분석 모듈
 │── mll.py               # 성적 분석 및 맞춤형 공부법 추천
 │── requirements.txt     # 필요한 패키지 목록
+
 📌 정보 출처
 데이터셋: Kaggle - 학생 성적 예측 데이터
 기술 스택: Streamlit, Pandas, NumPy, Scikit-learn, XGBoost
