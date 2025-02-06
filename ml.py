@@ -9,24 +9,28 @@ import platform
 def set_korean_font():
     plt.rcParams["axes.unicode_minus"] = False  # ✅ 마이너스(-) 깨짐 방지
 
+    font_path = None  # 폰트 경로 초기화
+
     if platform.system() == "Windows":
-        plt.rc("font", family="Malgun Gothic")  # ✅ 윈도우 환경 (맑은 고딕)
-    else:
-        # ✅ 서버(Linux) 환경에서는 NanumGothic 폰트를 직접 등록
+        font_name = "Malgun Gothic"
+    elif platform.system() == "Linux":
         font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+    elif platform.system() == "Darwin":  # MacOS
+        font_name = "AppleGothic"
+    else:
+        font_name = "DejaVu Sans"
 
-        if not os.path.exists(font_path):  # 폰트가 없을 경우 예외 처리
-            st.error("❌ 서버에 'NanumGothic' 폰트가 설치되어 있지 않습니다. 폰트를 설치하세요!")
-            return
-
+    # ✅ 리눅스 환경에서 직접 폰트 적용
+    if font_path and os.path.exists(font_path):
         try:
             font_prop = fm.FontProperties(fname=font_path)
-            plt.rcParams["font.family"] = font_prop.get_name()  # ✅ 강제 적용
+            plt.rcParams["font.family"] = font_prop.get_name()
             fm._rebuild()  # ✅ Matplotlib 폰트 캐시 갱신
-            st.success(f"✅ 한글 폰트가 정상적으로 적용되었습니다! ({font_prop.get_name()})")
-
+            st.success(f"✅ 한글 폰트 적용 완료: {font_prop.get_name()}")
         except Exception as e:
-            st.error(f"⚠️ 한글 폰트 설정 중 오류 발생: {e}")
+            st.error(f"⚠️ 한글 폰트 설정 오류 발생: {e}")
+    else:
+        plt.rc("font", family=font_name)  # 기본 OS 폰트 사용
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
