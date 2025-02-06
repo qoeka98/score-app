@@ -3,5 +3,7 @@ joblib
 pandas
 numpy
 matplotlib
-scikit-learn 
+scikit-learn
 plotly
+tensorflow==2.15 
+
