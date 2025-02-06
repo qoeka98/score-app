@@ -1,24 +1,19 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm  # ✅ 폰트 설정용
-import os
+import platform
+from matplotlib import font_manager, rc
 
-# ✅ 한글 폰트 설정 (MaruBuri-Bold.ttf 사용)
+# ✅ 운영체제(OS)별 한글 폰트 설정
 def set_korean_font():
-    font_path = "MaruBuri-Bold.ttf"  # ✅ 로컬 폰트 경로 (현재 디렉토리 기준)
-    
-    if not os.path.exists(font_path):
-        st.error(f"❌ 폰트 파일을 찾을 수 없습니다: {font_path}")
-        return  # 폰트가 없으면 기본 설정 유지
-    
-    try:
-        font_prop = fm.FontProperties(fname=font_path)
-        plt.rc("font", family=font_prop.get_name())  # ✅ 폰트 적용
-        plt.rc("axes", unicode_minus=False)  # ✅ 마이너스 기호 깨짐 방지
-        st.success("✅ 한글 폰트가 성공적으로 적용되었습니다!")
-    except Exception as e:
-        st.error(f"⚠️ 한글 폰트 설정 중 오류 발생: {e}")
+    plt.rcParams["axes.unicode_minus"] = False  # ✅ 마이너스(-) 깨짐 방지
+
+    if platform.system() == "Windows":
+        rc("font", family="Malgun Gothic")  # ✅ 윈도우 환경 (맑은 고딕)
+    elif platform.system() == "Linux":
+        rc("font", family="NanumGothic")  # ✅ 리눅스 환경 (나눔 고딕)
+    else:
+        rc("font", family="DejaVu Sans")  # ✅ 기본 폰트 (맥OS 등)
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
