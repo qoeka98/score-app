@@ -5,6 +5,14 @@ import matplotlib.font_manager as fm
 import os
 import platform
 
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/image']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
+
 # ✅ 한글 폰트 설정 (서버에서도 정상적으로 실행되도록 설정)
 def set_korean_font():
     plt.rcParams["axes.unicode_minus"] = False  # ✅ 마이너스(-) 깨짐 방지
