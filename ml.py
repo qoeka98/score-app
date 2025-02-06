@@ -1,20 +1,13 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm  # ✅ 한글 폰트 설정용
 
-# ✅ 한글 폰트 설정 (서버 배포 대응)
+# ✅ 한글 폰트 설정 (윈도우 환경 - 맑은 고딕)
 def set_korean_font():
-    font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"  # ✅ 서버용 폰트 경로
-    try:
-        font_prop = fm.FontProperties(fname=font_path)
-        plt.rc("font", family=font_prop.get_name())  # ✅ 한글 폰트 적용
-    except:
-        plt.rc("font", family="DejaVu Sans")  # ✅ 기본 폰트로 대체 (서버 문제 대비)
+    plt.rc("font", family="Malgun Gothic")  # 윈도우 (맑은 고딕)
+    plt.rc("axes", unicode_minus=False)  # 마이너스 기호 깨짐 방지
 
-    plt.rc("axes", unicode_minus=False)  # ✅ 마이너스 기호 깨짐 방지
-
-set_korean_font()  # ✅ 폰트 설정 적용
+set_korean_font()  # 폰트 설정 적용
 
 def run_ml():
     """Streamlit을 사용하여 공부 시간과 자유 시간이 성적에 미치는 영향 분석"""
@@ -38,8 +31,8 @@ def run_ml():
         ax.plot(study_hours, predicted_scores, label="예상 성적", marker="o", linestyle="--", color="blue")
         ax.scatter(study_time, actual_score, color="red", label="사용자 입력 성적", s=100, edgecolors="black")
 
-        ax.set_xlabel("📚 공부 시간 (시간)")
-        ax.set_ylabel("📊 예상 성적")
+        ax.set_xlabel("공부 시간 (시간)")
+        ax.set_ylabel("성적")
         ax.set_title("📊 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
         ax.legend()
         ax.grid(True)
