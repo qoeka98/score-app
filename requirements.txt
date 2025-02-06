@@ -8,3 +8,6 @@ plotly
 tensorflow==2.15 
 fonttools>=4.36.0 
 
+matplotlib-inline
+
+
