@@ -1,18 +1,24 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm  # ✅ 한글 폰트 설정용
+import matplotlib.font_manager as fm  # ✅ 폰트 설정용
+import os
 
-# ✅ 한글 폰트 설정 (서버 배포 대응)
+# ✅ 한글 폰트 설정 (MaruBuri-Bold.ttf 사용)
 def set_korean_font():
-    font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"  # ✅ 서버용 폰트 경로
+    font_path = "MaruBuri-Bold.ttf"  # ✅ 로컬 폰트 경로 (현재 디렉토리 기준)
+    
+    if not os.path.exists(font_path):
+        st.error(f"❌ 폰트 파일을 찾을 수 없습니다: {font_path}")
+        return  # 폰트가 없으면 기본 설정 유지
+    
     try:
         font_prop = fm.FontProperties(fname=font_path)
-        plt.rc("font", family=font_prop.get_name())  # ✅ 한글 폰트 적용
-    except:
-        plt.rc("font", family="DejaVu Sans")  # ✅ 기본 폰트로 대체 (서버 문제 대비)
-
-    plt.rc("axes", unicode_minus=False)  # ✅ 마이너스 기호 깨짐 방지
+        plt.rc("font", family=font_prop.get_name())  # ✅ 폰트 적용
+        plt.rc("axes", unicode_minus=False)  # ✅ 마이너스 기호 깨짐 방지
+        st.success("✅ 한글 폰트가 성공적으로 적용되었습니다!")
+    except Exception as e:
+        st.error(f"⚠️ 한글 폰트 설정 중 오류 발생: {e}")
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
@@ -38,9 +44,9 @@ def run_ml():
         ax.plot(study_hours, predicted_scores, label="예상 성적", marker="o", linestyle="--", color="blue")
         ax.scatter(study_time, actual_score, color="red", label="사용자 입력 성적", s=100, edgecolors="black")
 
-        ax.set_xlabel("📚 공부 시간 (시간)")
-        ax.set_ylabel("📊 예상 성적")
-        ax.set_title("📊 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
+        ax.set_xlabel(" 공부 시간 (시간)")
+        ax.set_ylabel(" 예상 성적")
+        ax.set_title(" 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
         ax.legend()
         ax.grid(True)
 
