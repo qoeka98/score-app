@@ -9,7 +9,8 @@ import platform
 def set_korean_font():
     plt.rcParams["axes.unicode_minus"] = False  # ✅ 마이너스(-) 깨짐 방지
 
-    font_path = None  # 폰트 경로 초기화
+    font_name = None  # ✅ 전역 변수로 초기화
+    font_path = None  # ✅ 리눅스용 폰트 경로 초기화
 
     if platform.system() == "Windows":
         font_name = "Malgun Gothic"
@@ -20,17 +21,20 @@ def set_korean_font():
     else:
         font_name = "DejaVu Sans"
 
-    # ✅ 리눅스 환경에서 직접 폰트 적용
+    # ✅ 리눅스 환경에서 폰트가 존재하는 경우, 직접 적용
     if font_path and os.path.exists(font_path):
         try:
             font_prop = fm.FontProperties(fname=font_path)
             plt.rcParams["font.family"] = font_prop.get_name()
             fm._rebuild()  # ✅ Matplotlib 폰트 캐시 갱신
             st.success(f"✅ 한글 폰트 적용 완료: {font_prop.get_name()}")
+            return
         except Exception as e:
             st.error(f"⚠️ 한글 폰트 설정 오류 발생: {e}")
-    else:
-        plt.rc("font", family=font_name)  # 기본 OS 폰트 사용
+
+    # ✅ 기본 폰트 적용 (윈도우/MacOS/기본값)
+    if font_name:
+        plt.rc("font", family=font_name)
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
@@ -56,9 +60,9 @@ def run_ml():
         ax.plot(study_hours, predicted_scores, label="예상 성적", marker="o", linestyle="--", color="blue")
         ax.scatter(study_time, actual_score, color="red", label="사용자 입력 성적", s=100, edgecolors="black")
 
-        ax.set_xlabel("📚 공부 시간 (시간)")
-        ax.set_ylabel("📊 예상 성적")
-        ax.set_title("📊 공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
+        ax.set_xlabel(" 공부 시간 (시간)")
+        ax.set_ylabel("예상 성적")
+        ax.set_title("공부시간 vs. 성적 (예측값 vs. 입력값 비교)")
         ax.legend()
         ax.grid(True)
 
