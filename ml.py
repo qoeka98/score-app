@@ -42,7 +42,7 @@ def set_korean_font():
 
     # ✅ 기본 폰트 적용 (윈도우/MacOS/기본값)
     if font_name:
-        plt.rc("font", family=font_name)
+        plt.rc("font", family='MaruBuri-Bold')
 
 set_korean_font()  # ✅ 폰트 설정 적용
 
