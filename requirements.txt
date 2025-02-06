@@ -7,7 +7,7 @@ scikit-learn
 plotly
 tensorflow==2.15 
 fonttools>=4.36.0 
-matplotlib-fonts 
+fonttools 
 matplotlib-inline
 
 
