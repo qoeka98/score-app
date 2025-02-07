@@ -2,7 +2,7 @@
 
 > 당신의 학습 패턴을 분석하고, 최적의 공부 전략을 찾아드립니다! 🚀
 
-![AI Grade Prediction](https://your-image-link.com/banner.png)
+
 
 ## 📌 프로젝트 개요
 이 프로젝트는 **Linear Regression과 XGBoost Regressor(XGBRegressor)**를 학습시켜
