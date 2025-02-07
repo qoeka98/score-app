@@ -90,7 +90,9 @@ def run_web():
         st.divider()
         st.write('')
 
-        st.markdown('''🔮 인공지능도 예측할 수 없는 미래를 위한 설계
+        st.subheader('🔮 인공지능도 예측할 수 없는 미래를 위한 설계')
+
+        st.markdown('''
 
 공부는 단순한 숫자 게임이 아닙니다.💡 집중하고 노력하는 순간, 모델이 예측할 수 없는 가능성이 열립니다.
 
