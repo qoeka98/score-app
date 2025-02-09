@@ -13,39 +13,39 @@ def run_mll():
     def recommend_study_method(score):
         study_resources = {
             "10-30": [
-                ("EBSi 인강", "https://www.ebsi.co.kr/"),
-                ("케이무크(K-MOOC)", "https://www.kmooc.kr/"),
-                ("메가스터디", "https://www.megastudy.net/"),
-                ("쎈수학", "https://www.ssemath.com/"),
-                ("엠베스트", "https://www.mbest.co.kr/")
+                "EBSi 인강 : https://www.ebsi.co.kr/",
+                "케이무크(K-MOOC) : https://www.kmooc.kr/",
+                "메가스터디 : https://www.megastudy.net/",
+                "쎈수학 : https://www.ssemath.com/",
+                "엠베스트 : https://www.mbest.co.kr/"
             ],
             "30-50": [
-                ("EBSi 인강", "https://www.ebsi.co.kr/"),
-                ("이투스", "https://www.etoos.com/"),
-                ("대성마이맥", "https://www.mimacstudy.com/"),
-                ("수박씨닷컴", "https://www.soobakc.com/"),
-                ("매스플랫(수학 전문)", "https://www.mathflat.com/")
+                "EBSi 인강 : https://www.ebsi.co.kr/",
+                "이투스 : https://www.etoos.com/",
+                "대성마이맥 : https://www.mimacstudy.com/",
+                "수박씨닷컴 : https://www.soobakc.com/",
+                "매스플랫(수학 전문) : https://www.mathflat.com/"
             ],
             "50-70": [
-                ("스카이에듀", "https://www.skyedu.com/"),
-                ("비상에듀", "https://visang.com/"),
-                ("ETOOS 인강", "https://www.etoos.com/"),
-                ("스터디노트(과목별 개념 정리)", "https://www.studynote.kr/"),
-                ("엠베스트(중등 전문)", "https://www.mbest.co.kr/")
+                "스카이에듀 : https://www.skyedu.com/",
+                "비상에듀 : https://visang.com/",
+                "ETOOS 인강 : https://www.etoos.com/",
+                "스터디노트(과목별 개념 정리) : https://www.studynote.kr/",
+                "엠베스트(중등 전문) : https://www.mbest.co.kr/"
             ],
             "70-90": [
-                ("강남인강", "https://www.ebsi.co.kr/main/gangnam.ebs"),
-                ("메가스터디 러셀", "https://www.russel.ac/"),
-                ("대성마이맥", "https://www.mimacstudy.com/"),
-                ("비상에듀", "https://visang.com/"),
-                ("스터디노트", "https://www.studynote.kr/")
+                "강남인강 :  https://www.ebsi.co.kr/main/gangnam.ebs",
+                "메가스터디 러셀 : https://www.russel.ac/",
+                "대성마이맥 : https://www.mimacstudy.com/",
+                "비상에듀 : https://visang.com/",
+                "스터디노트 : https://www.studynote.kr/"
             ],
             "90-100": [
-                ("EBSi 프리미엄", "https://www.ebsi.co.kr/"),
-                ("이투스 프리미엄", "https://www.etoos.com/"),
-                ("스카이에듀 프리미엄", "https://www.skyedu.com/"),
-                ("메가스터디 러셀 최상위권", "https://www.russel.ac/"),
-                ("대성마이맥 프리미엄", "https://www.mimacstudy.com/")
+                "EBSi 프리미엄 : https://www.ebsi.co.kr/",
+                "이투스 프리미엄 : https://www.etoos.com/",
+                "스카이에듀 프리미엄 : https://www.skyedu.com/",
+                "메가스터디 러셀 최상위권 : https://www.russel.ac/",
+                "대성마이맥 프리미엄 : https://www.mimacstudy.com/"
             ]
         }
 
