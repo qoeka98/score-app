@@ -109,7 +109,7 @@ def run_mll():
     new_studytime, new_freetime, time_adjustment_message = calculate_time_adjustments(current_studytime, current_freetime, current_score, target_score)
 
     # ✅ 결과 출력
-    st.info(f"🔎 현재 성적: {current_score}점")
+    
     st.markdown(f'''
 <div style="background-color:#dff0d8; padding:10px; border-radius:5px;">
     <h2 style="color:#155724; margin:0;">📌 공부 방법 추천:</h2>
