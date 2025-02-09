@@ -58,6 +58,11 @@ def run_ml():
     st.write("### 📊 공부시간 vs. 성적 비교 차트")
     show_comparison_plot(study_time, free_time, actual_score)
 
+    st.write('''차트에 찍힌 빨간색 동그라미는 유저의 입력 점수입니다.
+             파색그래프는 원하는 점수에 도달 하기 위해 공부시간을 보기 쉽게 나타낸 그래프입니다
+             
+             이 차트를 통해 유저의 공부시간을 보다 쉽게 결정할 수 있게 도와줍니다다 ''')
+
 # ✅ Streamlit에서 실행
 if __name__ == "__main__":
     run_ml()
