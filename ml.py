@@ -61,7 +61,7 @@ def run_ml():
     st.markdown('''
     <div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px;">
         <p><strong>차트에 찍힌 <span style="color:red;">빨간색 동그라미</span>는 유저의 입력 점수입니다.</strong></p>
-        <p><strong><span style="color:blue;">파란색 그래프</span>는 원하는 점수에 도달하기 위해 필요한 공부 시간을 보기 쉽게 나타낸 그래프입니다.</strong></p>
+        <p><strong><span style="color:blue;">파란색 그래프</span>는 원하는 점수에 도달하기 위해 필요한 예측 공부 시간을 보기 쉽게 나타낸 그래프입니다.</strong></p>
         <p>이 차트를 통해 유저의 공부 시간을 보다 쉽게 결정할 수 있게 도와줍니다.</p>
     </div>
 ''', unsafe_allow_html=True)
