@@ -13,39 +13,39 @@ def run_mll():
     def recommend_study_method(score):
         study_resources = {
             "10-30": [
-                "https://www.kmooc.kr/",
-                "https://www.ebsi.co.kr/",
-                "https://www.megastudy.net/",
-                "https://www.edwith.org/",
-                "https://www.ssemath.com/"
+                ("EBSi 인강", "https://www.ebsi.co.kr/"),
+                ("케이무크(K-MOOC)", "https://www.kmooc.kr/"),
+                ("메가스터디", "https://www.megastudy.net/"),
+                ("쎈수학", "https://www.ssemath.com/"),
+                ("엠베스트", "https://www.mbest.co.kr/")
             ],
             "30-50": [
-                "https://www.inflearn.com/",
-                "https://www.edwith.org/",
-                "https://www.mathflat.com/",
-                "https://www.studynote.kr/",
-                "https://www.khanacademy.org/"
+                ("EBSi 인강", "https://www.ebsi.co.kr/"),
+                ("이투스", "https://www.etoos.com/"),
+                ("대성마이맥", "https://www.mimacstudy.com/"),
+                ("수박씨닷컴", "https://www.soobakc.com/"),
+                ("매스플랫(수학 전문)", "https://www.mathflat.com/")
             ],
             "50-70": [
-                "https://edu.goorm.io/",
-                "https://www.fastcampus.co.kr/",
-                "https://www.inflearn.com/courses/programming",
-                "https://www.udemy.com/",
-                "https://www.codeit.kr/"
+                ("스카이에듀", "https://www.skyedu.com/"),
+                ("비상에듀", "https://visang.com/"),
+                ("ETOOS 인강", "https://www.etoos.com/"),
+                ("스터디노트(과목별 개념 정리)", "https://www.studynote.kr/"),
+                ("엠베스트(중등 전문)", "https://www.mbest.co.kr/")
             ],
             "70-90": [
-                "https://programmers.co.kr/",
-                "https://www.codeit.kr/",
-                "https://www.algospot.com/",
-                "https://www.codetree.ai/",
-                "https://www.acmicpc.net/"
+                ("강남인강", "https://www.ebsi.co.kr/main/gangnam.ebs"),
+                ("메가스터디 러셀", "https://www.russel.ac/"),
+                ("대성마이맥", "https://www.mimacstudy.com/"),
+                ("비상에듀", "https://visang.com/"),
+                ("스터디노트", "https://www.studynote.kr/")
             ],
             "90-100": [
-                "https://nomadcoders.co/",
-                "https://www.udacity.com/",
-                "https://cs50.harvard.edu/",
-                "https://www.coursera.org/",
-                "https://www.pluralsight.com/"
+                ("EBSi 프리미엄", "https://www.ebsi.co.kr/"),
+                ("이투스 프리미엄", "https://www.etoos.com/"),
+                ("스카이에듀 프리미엄", "https://www.skyedu.com/"),
+                ("메가스터디 러셀 최상위권", "https://www.russel.ac/"),
+                ("대성마이맥 프리미엄", "https://www.mimacstudy.com/")
             ]
         }
 
@@ -110,7 +110,14 @@ def run_mll():
 
     # ✅ 결과 출력
     st.info(f"🔎 현재 성적: {current_score}점")
-    st.success(f"📌 공부 방법 추천: {study_method}")
+    
+    st.markdown(f'''
+    <div style="background-color:#dff0d8; padding:10px; border-radius:5px;">
+        <h2 style="color:#155724; margin:0;">📌 공부 방법 추천:</h2>
+        <p style="font-size:18px; color:#155724; font-weight:bold;">{study_method}</p>
+    </div>
+''', unsafe_allow_html=True)
+
     st.warning(time_adjustment_message)
     st.success(f"📅 조정 후 공부 시간: {new_studytime}시간, 자유 시간: {new_freetime}시간")
 
