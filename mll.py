@@ -110,14 +110,13 @@ def run_mll():
 
     # ✅ 결과 출력
     st.info(f"🔎 현재 성적: {current_score}점")
-    
     st.markdown(f'''
-    <div style="background-color:#dff0d8; padding:10px; border-radius:5px;">
-        <h2 style="color:#155724; margin:0;">📌 공부 방법 추천:</h2>
-        <p style="font-size:18px; color:#155724; font-weight:bold;">{study_method}</p>
-    </div>
+<div style="background-color:#dff0d8; padding:10px; border-radius:5px;">
+    <h2 style="color:#155724; margin:0;">📌 공부 방법 추천:</h2>
+            
+    {study_method}
+</div>
 ''', unsafe_allow_html=True)
-
     st.warning(time_adjustment_message)
     st.success(f"📅 조정 후 공부 시간: {new_studytime}시간, 자유 시간: {new_freetime}시간")
 
