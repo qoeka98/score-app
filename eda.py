@@ -28,7 +28,7 @@ def run_eda():
         freetime_total = freetime_per_week * weeks_diff
         total_hours = studytime_total + freetime_total
 
-        # ✅ 공부 시간당 성적 0.3배 증가 적용
+        # ✅ 공부 시간당 성적 0.6배 증가 적용
         studytime_boost = studytime_total * 0.6  
 
         # ✅ 자유 시간 패널티 적용 (완화)
